@@ -8,145 +8,122 @@
 </p>
 
 <p align="center">
-  <strong>Your infrastructure. Fully visible. Centrally controlled.</strong><br />
-  <span>Discover what exists. Understand how it connects. Operate it without logging into every node.</span><br />
+  <strong>Self-hosted Infrastructure Management Platform</strong><br />
+  <span>Discover → Understand → Secure → Control</span><br />
   <a href="https://kerqon.de">kerqon.de</a>
 </p>
 
 <p align="center">
-  <sub>Early development — source code will be published with the first public KERQON release.</sub>
+  <sub>Currently in private development — source code will be published with the first public KERQON release.</sub>
 </p>
 
 ---
 
-**KERQON** is a **self-hosted infrastructure management platform**.
+KERQON is a self-hosted infrastructure control plane designed to discover, understand, secure, and centrally operate Linux systems across local and remote networks — without requiring operators to routinely log in to every node.
 
-One control plane. Connected agents. A deep operational model of your nodes — owned and operated by you.
+The goal is not another monitoring dashboard. KERQON is designed as a control plane that understands infrastructure deeply enough to operate it safely.
+
+---
+
+## Development status
+
+**KERQON is currently in private development.**
+
+This public repository intentionally contains **no product source code** today. It serves as the public face for branding, community coordination, and future release publishing.
+
+Source code will appear with the first deliberately published public KERQON release. Installation and operational documentation will follow when a public release is available.
+
+Announcements: [kerqon.de](https://kerqon.de)
+
+---
+
+## What is KERQON?
+
+KERQON connects managed nodes through outbound-initiated agents to a central control plane you operate.
+
+Operators get a shared operational context across their estate — not a server list, not a remote-shell convenience tool, and not a monitoring-dashboard substitute. Visibility matters, but the product direction is deep infrastructure understanding and controlled central management.
 
 **Discover → Understand → Secure → Control**
 
-KERQON is not a monitoring-dashboard substitute, not a server list, and not a remote-shell tool. Visibility matters — but the product direction is full infrastructure understanding and controlled central management.
+---
+
+## Discover
+
+KERQON is built to capture deep node context over time. The product model includes, among other domains:
+
+- host identity, OS/kernel, and hardware context
+- interfaces, IP addresses, routes, and DNS
+- listening ports, bindings, exposure, and certificates
+- services, processes, and containers
+- storage, mounts, and volumes
+- VPN relationships and remote reachability
+- health, metrics, and operational state
+
+Not every domain is production-complete today. The README distinguishes current platform direction from areas still expanding.
 
 ---
 
-## Control plane
+## Understand
 
-<p align="center">
-  <img src="media/control-plane-overview.svg" alt="KERQON control plane connected to managed nodes over an authenticated outbound mTLS agent channel" width="920" />
-</p>
+KERQON aims to model relationships — not isolated metrics.
 
-KERQON connects nodes through agents to a central control plane.
+That includes network topology, route relationships, exposure context, service dependencies, VPN peers, remote networks, and what can reach a node versus what a node can reach.
 
-From there, operators get a shared operational context across the estate:
-
-- **Visibility** — inventory, health, metrics, and relationships
-- **Management** — one place to work with connected nodes
-- **Security** — authenticated identity and constrained trust boundaries
-- **Operations** — controlled actions where the platform supports them
-
-Agents initiate outbound connections. Managed nodes do not need inbound management ports for KERQON control.
+The long-term questions are not only “what is running?” but also “what can reach this system?” and “what can this system reach?”
 
 ---
 
-## What KERQON actually does
+## Control
 
-KERQON is built to make infrastructure:
+Managed nodes are intended to be operated through the control plane — not only observed.
 
-1. **Discoverable** — what exists on and around a node
-2. **Understandable** — how interfaces, services, routes, and peers relate
-3. **Secure by constraint** — identity, mTLS, authorization, fail-closed verification
-4. **Controllable** — central actions without logging into every machine by default
+Authorized operations are designed to run over an authenticated agent channel with scoped authorization, constrained execution, and structured results returned to the shared operational view.
 
-Depending on the surface available in a given release, that includes host identity, network and exposure context, services and runtime signals, topology relationships, metrics and health, lifecycle/update context, and controlled operational actions where supported.
+**Product direction** includes central administration such as service management, container operations, controlled terminal access, port exposure, network and route changes, VPN relationships, updates, and lifecycle operations — without operators switching to every node for routine work.
 
----
-
-## Deep node model
-
-<p align="center">
-  <img src="media/node-model.svg" alt="Deep node model showing identity, network, exposure, connectivity, runtime, storage, state, and operations around a managed node" width="920" />
-</p>
-
-**Every connected node. One control plane.**
-
-KERQON aims to model a node as an operable system — not as a CPU/RAM chart.
-
-Core domains in the product model:
-
-| Domain | Examples |
-| ------ | -------- |
-| **Identity** | Hostname, OS/kernel, hardware |
-| **Network** | Interfaces, IPs, routes, DNS |
-| **Exposure** | Listening ports, bindings, services, certificates |
-| **Connectivity** | LAN, VPN/overlay, peers, gateways |
-| **Runtime** | Services, processes, containers |
-| **Storage** | Disks, mounts, volumes |
-| **State** | Metrics, health, events, updates |
-| **Operations** | Configure, restart, update, deploy, secure |
-
-Some domains are already part of the core platform direction and implementation path; others continue to expand. The README does not claim every domain is production-complete today.
+Where operations exist in a given release, they are meant to be structured, authorized, and auditable — not unrestricted root access packaged as a product feature.
 
 ---
 
-## Central control without direct node access
+## Capability overview
 
-Operators should not need to log into every node individually.
+| Discover | Understand | Control | Secure |
+| --- | --- | --- | --- |
+| Hosts & hardware | Topology & relationships | Services & containers | mTLS agent channel |
+| Interfaces & IPs | Exposure context | Controlled terminal | Authenticated agent identity |
+| Routes & DNS | VPN & remote reachability | Ports & exposure | Scoped authorization |
+| Ports & services | Runtime dependencies | Routes & VPN changes | Least privilege |
+| Containers & runtime | Operational context | Updates & lifecycle | Signed releases |
+| Storage & health | Remote networks | Structured operations | Self-hosted data ownership |
 
-KERQON’s intended operating model is central, controlled management through the authenticated agent channel — not an unrestricted remote shell.
-
-The control plane authorizes work. The agent executes within constrained boundaries. Results and state return into the shared operational view.
-
-Examples of the operations surface (current capability vs expanding direction, depending on release):
-
-- service management
-- updates
-- config deployment
-- network changes
-- VPN management
-- certificate operations
-- controlled restart/reboot
-- plugin management
-
-Where operations exist, they are meant to be **structured**, **authorized**, and **auditable** — not ad-hoc root access packaged as a product feature.
+Treat this table as product direction unless a specific release documents otherwise.
 
 ---
 
-## Security by design
+## Security by architecture
 
-**Security is not an add-on to KERQON. It is a constraint on how the platform is designed.**
+Security is a design constraint for KERQON — not a marketing add-on.
 
-<p align="center">
-  <img src="media/security-model.svg" alt="Security model: operator to control plane to authenticated outbound mTLS agent channel to node" width="920" />
-</p>
+Architectural principles and targets include:
 
-Platform constraints include:
-
-- **Authenticated agent identity** — agents enroll and operate with cryptographic identity
-- **mTLS** — mutual authentication for agent-to-control-plane traffic
+- **Self-hosted ownership** — your control plane, nodes, infrastructure, and data
 - **Outbound-initiated agents** — no inbound management ports required on nodes for KERQON control
-- **Central authorization / RBAC** — operator actions are authorized in the control plane
-- **Controlled operations** — typed, bounded actions instead of unrestricted remote shell as the default model
-- **Least privilege** — agents and plugins are designed to run with constrained permissions
-- **Auditable actions** — sensitive operational paths are intended to be traceable
-- **Signed releases (Ed25519)** — release artifacts are signed against trusted keys
-- **Artifact integrity (SHA-256)** — published artifacts can be hash-verified
-- **Fail-closed verification** — invalid identity, revocation, or failed verification does not remain trusted
-- **Bounded plugins** — declared capabilities, isolation, and validation boundaries
+- **Mutual TLS** and **authenticated agent identities**
+- **Scoped authorization** with least privilege
+- **No unrestricted remote shell by default** — controlled operations instead
+- **Signed releases (Ed25519)** and **artifact integrity (SHA-256)**
+- **Fail-closed verification** when identity or trust checks do not pass
+- **Auditable administrative actions** on sensitive operational paths
 
-See [SECURITY.md](SECURITY.md) for reporting guidance.
+See [SECURITY.md](SECURITY.md) for vulnerability reporting.
 
 ---
 
-## Self-hosted ownership
+## Self-hosted
 
-KERQON is designed for operators who want ownership of the stack they depend on:
+KERQON is designed for operators who want ownership of the stack they depend on. Self-hosting is the baseline — not an afterthought.
 
-- your control plane
-- your nodes
-- your infrastructure
-- your data
-
-Self-hosting is the baseline — not an afterthought.
+Rich product visuals and UI demonstrations belong primarily on [kerqon.de](https://kerqon.de) as the product matures.
 
 ---
 
@@ -159,7 +136,15 @@ Product logic extends through a **bounded plugin model**:
 - schema-validated outputs
 - operator-controlled enablement
 
-Plugins extend what KERQON can observe and integrate — they are not a bypass around security or operational constraints.
+Plugins extend observation and integration — they are not a bypass around security or operational constraints.
+
+---
+
+## Architecture & technology
+
+KERQON is a multi-component platform: agents on managed nodes, a central control plane, schema-validated APIs, and bounded plugins.
+
+Detailed architecture documentation will ship with public source releases. This repository does not publish implementation internals during private development.
 
 ---
 
@@ -174,25 +159,19 @@ See [NOTICE](NOTICE) and [LICENSE](LICENSE).
 
 ---
 
-## Development status
-
-**KERQON is currently in private development.**
-
-This public repository intentionally contains **no product source code**.
-
-Source appears only with the first deliberately published public release. Until then, this repository is the public face for branding, community files, and coordination.
-
-Announcements: [kerqon.de](https://kerqon.de)
-
----
-
-## Community & security
+## Community
 
 - Security reports: [SECURITY.md](SECURITY.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 Please do **not** publish security vulnerabilities as public GitHub issues.
+
+---
+
+## Installation & documentation
+
+No public installation guide is available yet. Documentation will be published alongside the first public source release.
 
 ---
 
