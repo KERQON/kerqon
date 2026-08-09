@@ -1,0 +1,23 @@
+kerqon — License Notice
+
+This repository uses a split license model.
+
+AGPL-3.0-only (platform core)
+  - Repository root LICENSE
+  - agent/
+  - control/api/
+  - control/web/
+  - Project-owned core runtime code not listed under Apache paths below
+
+Apache-2.0 (permissive ecosystem)
+  - schema/LICENSE — public contract types
+  - schemas/LICENSE — JSON Schema and protocol contract definitions
+  - sdk/rust/infra-plugin-sdk/LICENSE — Plugin SDK
+  - plugins/hello-world/LICENSE — example plugin
+  - plugins/stdio-example/LICENSE — example external plugin
+
+The public pre-code presence may contain only community, license, and branding files until the first public source release.
+
+Third-party dependency licenses are declared with published source and release artifacts.
+
+This file does not provide legal advice.

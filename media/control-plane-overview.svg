@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">KERQON control plane overview</title><desc id="desc">Central KERQON control plane connecting local and remote infrastructure with secure centralized operations.</desc>
+<defs>
+    <style>
+      :root{
+        --bg:#0b0f14; --panel:#101720; --panel2:#131b25; --line:#243246; --lineSoft:#1a2533;
+        --text:#eef3f9; --muted:#9ba8ba; --faint:#718095; --accent:#4d9fff; --ok:#4fd19a;
+        --warn:#e0b260; --danger:#ef7d7d;
+      }
+      text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      .bg{fill:var(--bg)} .card{fill:var(--panel);stroke:var(--line);stroke-width:1}
+      .card2{fill:var(--panel2);stroke:var(--line);stroke-width:1}
+      .accent-card{fill:var(--panel2);stroke:var(--accent);stroke-width:1.35}
+      .future-card{fill:#0f151e;stroke:#3b4656;stroke-width:1;stroke-dasharray:5 5}
+      .divider{stroke:var(--lineSoft);stroke-width:1}
+      .eyebrow{fill:var(--accent);font-size:12px;font-weight:700;letter-spacing:2.3px}
+      .title{fill:var(--text);font-size:30px;font-weight:740;letter-spacing:-.35px}
+      .subtitle{fill:var(--muted);font-size:15px;font-weight:500}
+      .h2{fill:var(--text);font-size:14px;font-weight:700}
+      .h3{fill:var(--text);font-size:12.5px;font-weight:700}
+      .body{fill:var(--muted);font-size:11.5px;font-weight:540}
+      .tiny{fill:var(--faint);font-size:10px;font-weight:560}
+      .value{fill:var(--text);font-size:11.5px;font-weight:650}
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+      .line{fill:none;stroke:#33455d;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+      .lineA{fill:none;stroke:#4d9fff;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+      .lineD{fill:none;stroke:#596779;stroke-width:1.1;stroke-dasharray:6 6;stroke-linecap:round}
+      .junction{fill:#4d9fff}.ok{fill:var(--ok)}.warn{fill:var(--warn)}.danger{fill:var(--danger)}.accent{fill:var(--accent)}
+      .chip{fill:#132033;stroke:#28486d;stroke-width:1}.chipText{fill:#aacbfa;font-size:9.6px;font-weight:650}
+      .chipOk{fill:#11241d;stroke:#275845;stroke-width:1}.chipOkText{fill:#8fe1bb;font-size:9.6px;font-weight:650}
+      .chipFuture{fill:#141923;stroke:#414b59;stroke-width:1;stroke-dasharray:4 4}.chipFutureText{fill:#909aab;font-size:9.6px;font-weight:650}
+      .port{fill:#111923;stroke:#2a3748;stroke-width:1}.portPublic{fill:#13241d;stroke:#2a5d49;stroke-width:1}.portPrivate{fill:#211b11;stroke:#5d4825;stroke-width:1}
+      .metricTrack{fill:#1b2634}.metricFill{fill:#4d9fff}.metricOk{fill:#4fd19a}
+      .nodeDot{fill:#111923;stroke:#3b516f;stroke-width:1}.nodeDotA{fill:#14243a;stroke:#4d9fff;stroke-width:1.25}
+      .site{fill:#0f151e;stroke:#35445a;stroke-width:1;stroke-dasharray:4 4}
+      @media (prefers-color-scheme:light){
+        :root{--bg:#f7f9fc;--panel:#fff;--panel2:#f5f8fc;--line:#d6e0eb;--lineSoft:#e5ebf2;--text:#101722;--muted:#536276;--faint:#76859a;--accent:#2c78df;--ok:#1f9d6c;--warn:#af7d26;--danger:#c84f4f}
+        .chip{fill:#eef5ff;stroke:#c9dcf4}.chipText{fill:#215ea8}.chipOk{fill:#eef9f4;stroke:#bfe7d6}.chipOkText{fill:#177d57}
+        .chipFuture{fill:#f6f8fb;stroke:#cad3de}.chipFutureText{fill:#6f7a8b}.port{fill:#f8fafc;stroke:#d8e1eb}
+        .portPublic{fill:#eef9f4;stroke:#c0e5d6}.portPrivate{fill:#fff8ec;stroke:#ead6ad}.metricTrack{fill:#edf1f6}
+        .line{stroke:#b6c5d7}.lineA{stroke:#4b86ca}.lineD{stroke:#a8b4c2}.future-card{fill:#fbfcfe;stroke:#c8d1dc}
+        .nodeDot{fill:#fff;stroke:#c8d6e6}.nodeDotA{fill:#eef5ff;stroke:#2c78df}.site{fill:#fbfcfe;stroke:#cbd4df}
+      }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#4d9fff"/>
+    </marker>
+    <marker id="arrowMuted" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#596779"/>
+    </marker>
+  </defs>
+<rect class="bg" width="1600" height="1000" rx="24"/>
+
+<text class="eyebrow" x="64" y="52">KERQON CONTROL PLANE</text>
+<text class="title" x="64" y="92">One place to understand and operate every connected node.</text>
+<text class="subtitle" x="64" y="121">Inventory, topology, exposure, health and controlled operations converge in one self-hosted control plane.</text>
+
+<g transform="translate(505 166)">
+ <rect class="accent-card" width="590" height="164" rx="18"/>
+ <text class="tiny" x="24" y="30">CENTRAL CONTROL PLANE</text>
+ <text class="title" x="24" y="68" style="font-size:24px">KERQON</text>
+ <text class="body" x="24" y="96">API · Web console · topology graph · policy · scheduling</text>
+ <g transform="translate(24 116)">
+  <rect class="chipOk" width="108" height="26" rx="13"/><text class="chipOkText" x="20" y="17">Authenticated</text>
+  <rect class="chip" x="118" width="90" height="26" rx="13"/><text class="chipText" x="144" y="17">Inventory</text>
+  <rect class="chip" x="218" width="90" height="26" rx="13"/><text class="chipText" x="243" y="17">Topology</text>
+  <rect class="chipFuture" x="318" width="110" height="26" rx="13"/><text class="chipFutureText" x="341" y="17">Operations</text>
+ </g>
+</g>
+
+<path class="lineA" d="M800 330 V390" marker-end="url(#arrow)"/>
+<text class="tiny" x="820" y="365">authenticated agent channel</text>
+
+<g transform="translate(64 410)">
+ <rect class="card" width="420" height="320" rx="16"/>
+ <text class="h2" x="20" y="32">Home / Site A</text><text class="tiny" x="20" y="53">LAN · SERVICES · STORAGE</text>
+ <line class="divider" x1="20" y1="66" x2="400" y2="66"/>
+ <rect class="nodeDotA" x="24" y="92" width="112" height="62" rx="10"/><text class="value" x="80" y="117" text-anchor="middle">node-01</text><text class="tiny mono" x="80" y="137" text-anchor="middle">10.20.4.21</text>
+ <rect class="nodeDot" x="164" y="92" width="112" height="62" rx="10"/><text class="value" x="220" y="117" text-anchor="middle">NAS</text><text class="tiny mono" x="220" y="137" text-anchor="middle">10.20.4.10</text>
+ <rect class="nodeDot" x="304" y="92" width="92" height="62" rx="10"/><text class="value" x="350" y="117" text-anchor="middle">PVE</text><text class="tiny mono" x="350" y="137" text-anchor="middle">.5</text>
+ <path class="line" d="M136 123 H164 M276 123 H304"/>
+ <text class="tiny" x="24" y="188">Detected context</text>
+ <text class="body" x="24" y="212">8 services · 14 listeners · 3 containers · 2 mounts</text>
+ <text class="body" x="24" y="236">gateway 10.20.4.1 · route 0.0.0.0/0 · VPN peer</text>
+ <text class="body" x="24" y="260">public exposure :443 · private management :22</text>
+ <circle class="ok" cx="28" cy="290" r="4"/><text class="value" x="42" y="294">Healthy</text>
+</g>
+
+<g transform="translate(590 410)">
+ <rect class="card" width="420" height="320" rx="16"/>
+ <text class="h2" x="20" y="32">Remote / Site B</text><text class="tiny" x="20" y="53">VPN · ROUTES · REMOTE REACHABILITY</text>
+ <line class="divider" x1="20" y1="66" x2="400" y2="66"/>
+ <rect class="nodeDotA" x="24" y="92" width="112" height="62" rx="10"/><text class="value" x="80" y="117" text-anchor="middle">edge-02</text><text class="tiny mono" x="80" y="137" text-anchor="middle">10.8.0.2</text>
+ <path class="lineA" d="M136 123 H204" marker-end="url(#arrow)"/>
+ <rect class="site" x="212" y="88" width="180" height="72" rx="10"/><text class="tiny" x="302" y="111" text-anchor="middle">REMOTE SUBNET</text><text class="value mono" x="302" y="136" text-anchor="middle">10.30.0.0/24</text>
+ <text class="tiny" x="24" y="188">Correlated context</text>
+ <text class="body" x="24" y="212">VPN peer → remote subnet → reachable systems</text>
+ <text class="body" x="24" y="236">routes and service endpoints linked to topology</text>
+ <text class="body" x="24" y="260">remote nodes remain centrally observable</text>
+ <circle class="ok" cx="28" cy="290" r="4"/><text class="value" x="42" y="294">Connected</text>
+</g>
+
+<g transform="translate(1116 410)">
+ <rect class="future-card" width="420" height="320" rx="16"/>
+ <text class="h2" x="20" y="32">Central operations</text><text class="tiny" x="20" y="53">CONTROL WITHOUT NODE-HOPPING</text>
+ <line class="divider" x1="20" y1="66" x2="400" y2="66"/>
+ <g transform="translate(20 88)">
+  <rect class="chipFuture" width="108" height="28" rx="14"/><text class="chipFutureText" x="28" y="18">Terminal</text>
+  <rect class="chipFuture" x="118" width="126" height="28" rx="14"/><text class="chipFutureText" x="143" y="18">Expose port</text>
+  <rect class="chipFuture" x="254" width="126" height="28" rx="14"/><text class="chipFutureText" x="286" y="18">Service</text>
+  <rect class="chipFuture" y="40" width="108" height="28" rx="14"/><text class="chipFutureText" x="27" y="58">Container</text>
+  <rect class="chipFuture" x="118" y="40" width="126" height="28" rx="14"/><text class="chipFutureText" x="162" y="58">Route</text>
+  <rect class="chipFuture" x="254" y="40" width="126" height="28" rx="14"/><text class="chipFutureText" x="303" y="58">VPN</text>
+  <rect class="chipFuture" y="80" width="108" height="28" rx="14"/><text class="chipFutureText" x="31" y="98">Deploy</text>
+  <rect class="chipFuture" x="118" y="80" width="126" height="28" rx="14"/><text class="chipFutureText" x="159" y="98">Update</text>
+  <rect class="chipFuture" x="254" y="80" width="126" height="28" rx="14"/><text class="chipFutureText" x="298" y="98">Reboot</text>
+ </g>
+ <line class="divider" x1="20" y1="222" x2="400" y2="222"/>
+ <text class="tiny" x="20" y="247">Targeted · authorized · auditable</text>
+ <text class="body" x="20" y="271">Operations travel through the authenticated agent channel.</text>
+ <text class="body" x="20" y="294">No routine SSH hopping between managed nodes.</text>
+</g>
+
+<g transform="translate(64 790)">
+ <rect class="card2" width="1472" height="92" rx="14"/>
+ <text class="tiny" x="20" y="27">CONTROL PLANE PRINCIPLES</text>
+ <rect class="chipOk" x="20" y="43" width="120" height="26" rx="13"/><text class="chipOkText" x="44" y="60">Self-hosted</text>
+ <rect class="chipOk" x="150" y="43" width="110" height="26" rx="13"/><text class="chipOkText" x="177" y="60">mTLS</text>
+ <rect class="chipOk" x="270" y="43" width="140" height="26" rx="13"/><text class="chipOkText" x="294" y="60">Agent identity</text>
+ <rect class="chipFuture" x="420" y="43" width="150" height="26" rx="13"/><text class="chipFutureText" x="445" y="60">Authorization</text>
+ <rect class="chipFuture" x="580" y="43" width="120" height="26" rx="13"/><text class="chipFutureText" x="609" y="60">Audit trail</text>
+ <text class="tiny" x="1444" y="60" text-anchor="end">central visibility · explicit trust · least privilege</text>
+</g>
+
+</svg>

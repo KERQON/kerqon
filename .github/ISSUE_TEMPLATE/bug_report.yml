@@ -1,0 +1,23 @@
+name: Bug report
+description: Report incorrect or misleading information in this repository
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        KERQON is in early development. This template is for the **public pre-code repository** (README, community files, media).
+  - type: textarea
+    id: description
+    attributes:
+      label: What is wrong?
+      placeholder: Describe the issue clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: File or section
+      placeholder: e.g. README.md — Development status
+    validations:
+      required: false

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: KERQON website
+    url: https://kerqon.de
+    about: Product announcements and contact (when available)
+  - name: Security policy
+    url: https://github.com/KERQON/kerqon/blob/main/SECURITY.md
+    about: Please report vulnerabilities privately per SECURITY.md
