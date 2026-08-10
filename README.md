@@ -1,5 +1,3 @@
-# KERQON
-
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="media/logo_horizontal_light.png" />
