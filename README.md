@@ -3,7 +3,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: light)" srcset="media/logo_horizontal_light.png" />
-    <img src="media/logo_horizontal_dark.png" alt="KERQON" width="420" />
+    <img src="media/logo_stacked_transparent.png" alt="KERQON" width="420" />
   </picture>
 </p>
 
